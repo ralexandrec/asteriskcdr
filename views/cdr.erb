@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Asterisk - CDR</title>
+	<link rel="stylesheet" type="text/css" href="components/bootstrap-css-only/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="components/bootstrap-css-only/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="components/angular-material/angular-material.min.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/cdr.css">
+</head>
+<body ng-app="app">
+	<input type="hidden" id="TOKEN" value="<%= TOKEN %>"/>
+	<input type="hidden" id="DATA_URL" value="<%= DATA_URL %>"/>
+	<div role="main" class="container theme-showcase">
+		<div class="col-lg-30">
+			<div class="page-header">
+				<h2 id="tables">Asterisk - Call Data Records</h2>
+			</div>
+			<div class="bs-component" ng-controller="listdata as data">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th style="width:100px">
+								Call Date <br/>
+								<md-datepicker ng-model="data.start_date" ng-change="data.getData(1)"></md-datepicker> Until
+								<md-datepicker ng-model="data.end_date" ng-change="data.getData(1)"></md-datepicker>
+							</th>
+							<th>
+								Source
+								<input type="text" name="input" ng-model="data.src" ng-change="data.getData(1)" ng-model-options="{ debounce: 500 }"/>
+							</th>
+							<th>
+								Destination
+								<input type="text" name="input" ng-model="data.dst" ng-change="data.getData(1)" ng-model-options="{ debounce: 500 }"/>
+							</th>
+							<th>Duration</th>
+							<th>
+								Disposition
+								<button type="button" class="glyphicon glyphicon-refresh" ng-click="data.getData(1)" data-tap-disabled="false"/>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-show="data.calls.length <= 0">
+							<td colspan="5" style="text-align:center;">Loading new data!!</td>
+						</tr>
+						<tr dir-paginate="call in data.calls|itemsPerPage:data.itemsPerPage" total-items="data.total_count">
+							<td>{{call.calldate}}</td>
+							<td>{{call.src}}</td>
+							<td>{{call.dst}}</td>
+							<td>{{call.duration}}</td>
+							<td>{{call.disposition}}</td>
+						</tr>
+					</tbody>
+				</table> 
+				<dir-pagination-controls
+				max-size="8"
+				direction-links="true"
+				boundary-links="true" 
+				on-page-change="data.getData(newPageNumber)" >
+			</dir-pagination-controls>
+		</div>
+	</div>
+</div>
+<script src="components/angular/angular.min.js"></script>
+<script src="components/angular-utils-pagination/dirPagination.js"></script>
+<script src="components/angular-material/angular-material.min.js"></script>
+<script src="components/angular-messages/angular-messages.min.js"></script>
+<script src="components/angular-aria/angular-aria.min.js"></script>
+<script src="components/angular-animate/angular-animate.min.js"></script>
+<script src="components/moment/moment.js"></script>
+<script src="javascripts/cdr.js"></script>
+</body>
+</html>

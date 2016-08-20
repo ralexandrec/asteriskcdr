@@ -1,0 +1,19 @@
+mysql_common: &MYSQL_COMMON
+  adapter: mysql2
+  encoding: utf8
+  port: 3306
+  host: #YOUR_SERVER_HOST
+  username: #MYSQL_USER
+  password: #MYSQL_PASSOWRD
+  
+production: &PRODUCTION
+  <<: *MYSQL_COMMON
+  database: #your_database sample: asterisk
+  
+development: 
+  <<: *PRODUCTION
+  database: #your_database sample: asterisk
+
+test: &TEST
+  <<: *MYSQL_COMMON
+  database: #your_database sample: asterisk_test

@@ -1,0 +1,2 @@
+#!/bin/bash
+rerun 'thin start -p3001'

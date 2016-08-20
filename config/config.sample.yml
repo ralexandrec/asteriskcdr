@@ -1,0 +1,13 @@
+production: &PRODUCTION
+  token: #"token" => your preferred token to access JSON DATA
+  data_url: #"http://lala:port/data" => your server:port/{data} route already mapped in application.rb
+  credentials:
+    user: #"user" => user that access cdr main page
+    password: #"pass" => password
+
+development: &DEVELOPMENT
+  token: #"token" => your preferred token to access JSON DATA
+  data_url: #"http://lala:port/data" => your server:port/{data} route already mapped in application.rb
+  credentials:
+    user: #"user" => user that access cdr main page
+    password: #"pass" => password

@@ -1,0 +1,2 @@
+#!/bin/bash
+bundle exec irb -I. -r application.rb
