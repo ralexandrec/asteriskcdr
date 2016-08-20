@@ -1,4 +1,5 @@
-Simple Asterisk Call Data Records in Sinatra and AngularJs
+# asteriskcdr
+Simples asterisk call data records in ruby, sinatra and angularJs
 VERSION 1.0
 
 Initial setup:
@@ -19,3 +20,4 @@ http://code.ciphertrick.com/2015/08/31/server-side-pagination-in-angularjs/
 https://github.com/michaelbromley/angularUtils/tree/master/src/directives/pagination
 Logger:
 http://stackoverflow.com/users/1633753/isaac-betesh
+
