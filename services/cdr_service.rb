@@ -15,7 +15,7 @@ class CdrService
     #Fix this setting your asterisk to record UTC instead of local time
     Time.zone = 'UTC'
     limit = params[:limit]
-    offset = params[:offset].to_i - 1
+    offset = params[:offset]
     self.conditions = ['1 = 1'];
     if params[:start_date].present?
       self.conditions[0] << " and calldate >= ? "

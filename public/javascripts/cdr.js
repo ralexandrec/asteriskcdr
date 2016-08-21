@@ -11,6 +11,7 @@ app.controller('listdata',function($http){
     vm.start_date = moment().subtract(5, 'days').toDate();
     vm.end_date = moment().toDate();
     vm.getData = function(pageno){
+        var offset = vm.itemsPerPage * (pageno - 1);
         vm.calls = [];
         $http({
             url: data_url,
@@ -21,7 +22,7 @@ app.controller('listdata',function($http){
                 src: vm.src,
                 dst: vm.dst,
                 token: token,
-                offset: pageno,
+                offset: offset,
                 limit: vm.itemsPerPage
             }
         }).success(function(response){
