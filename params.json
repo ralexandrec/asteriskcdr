@@ -1,0 +1,6 @@
+{
+  "name": "Asteriskcdr",
+  "tagline": "Simples asterisk call data records viewer in ruby, sinatra and angularJs",
+  "body": "### asteriskcdr\r\nSimple asterisk call data records in ruby, sinatra and angularJs\r\nVERSION 1.0\r\n\r\n###Initial setup:\r\nCopy and change yml files:\r\n\r\ncp config/config.sample.yml config/config.yml\r\n\r\ncp config/database.sample.yml config/database.yml\r\n\r\nOptional change config/deploy.rb and deploy/production.rb to use it with your own server.\r\n\r\nRun bundle to install required gems\r\n\r\nTo run locally with thin server:\r\n\r\ngem install thin\r\n\r\nthin start\r\n\r\n###Credits:\r\nServer side pagination:\r\nhttp://code.ciphertrick.com/2015/08/31/server-side-pagination-in-angularjs/\r\nhttps://github.com/michaelbromley/angularUtils/tree/master/src/directives/pagination\r\nLogger:\r\nhttp://stackoverflow.com/users/1633753/isaac-betesh\r\n\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
