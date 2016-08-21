@@ -26,5 +26,6 @@ http://code.ciphertrick.com/2015/08/31/server-side-pagination-in-angularjs/
 https://github.com/michaelbromley/angularUtils/tree/master/src/directives/pagination
 
 Logger:
+
 http://stackoverflow.com/users/1633753/isaac-betesh
 
