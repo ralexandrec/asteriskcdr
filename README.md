@@ -1,20 +1,25 @@
-# asteriskcdr
+### asteriskcdr
 Simple asterisk call data records in ruby, sinatra and angularJs
 VERSION 1.0
 
-Initial setup:
+###Initial setup:
 Copy and change those files:
+
 cp config/config.sample.yml config/config.yml
+
 cp config/database.sample.yml config/database.yml
 
 Optional change config/deploy.rb and deploy/production.rb to use it with your own server.
 
 Run bundle to install required gems
+
 To run locally with thin server:
+
 gem install thin
+
 thin start
 
-Credits:
+###Credits:
 Server side pagination:
 http://code.ciphertrick.com/2015/08/31/server-side-pagination-in-angularjs/
 https://github.com/michaelbromley/angularUtils/tree/master/src/directives/pagination
