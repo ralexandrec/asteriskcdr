@@ -1,5 +1,6 @@
 ### asteriskcdr
 Simple asterisk call data records in ruby, sinatra and angularJs
+
 VERSION 1.0
 
 ###Initial setup:
