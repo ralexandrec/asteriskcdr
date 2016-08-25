@@ -1,4 +1,4 @@
-### AsteriskCdr
+### Asterisk Cdr Ruby - Asterisk Call Data Records Report in Ruby
 ---
 Simple asterisk call data records in ruby, sinatra and angularJs
 
