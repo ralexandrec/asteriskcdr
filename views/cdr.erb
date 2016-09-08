@@ -13,10 +13,10 @@
 	<input type="hidden" id="DATA_URL" value="<%= DATA_URL %>"/>
 	<div role="main" class="container theme-showcase">
 		<div class="col-lg-30">
-			<div class="page-header">
-				<h2 id="tables">Asterisk - Call Data Records</h2>
-			</div>
 			<div class="bs-component" ng-controller="listdata as data">
+				<div class="page-header">
+				<h2 id="tables">Asterisk - Call Data Records<span ng-click="data.getXlsx()" class="glyphicon glyphicon-save"></span></h2>
+				</div>
 				<table class="table table-striped table-hover">
 					<thead>
 						<tr>
@@ -52,12 +52,14 @@
 							<td>{{call.disposition}}</td>
 						</tr>
 					</tbody>
-				</table> 
-				<dir-pagination-controls
-				max-size="8"
-				direction-links="true"
-				boundary-links="true" 
-				on-page-change="data.getData(newPageNumber)" >
+				</table>
+				<div style="text-align: center">
+					<dir-pagination-controls
+					max-size="8"
+					direction-links="true"
+					boundary-links="true" 
+					on-page-change="data.getData(newPageNumber)"/>
+				</div>
 			</dir-pagination-controls>
 		</div>
 	</div>

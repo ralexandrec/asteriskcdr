@@ -1,3 +1,4 @@
+require 'axlsx'
 class CdrService
   attr_accessor :limit, :offset, :conditions
   def initialize
@@ -5,6 +6,20 @@ class CdrService
   end
   def as_json
     cdr_data.as_json
+  end
+  def to_json
+    cdr_data.to_json
+  end
+  def to_xlsx
+    p = Axlsx::Package.new
+    wb = p.workbook
+    wb.add_worksheet(nome: "Asterisk CDR Report") do |sheet|
+      sheet.add_row ['Call Date', 'Source', 'Destination', 'Duration', 'Bill Duration', 'Disposition']
+      cdr_data.each{|data|
+        sheet.add_row [data.calldate, data.src, data.dst, data.duration, data.billsec, data.disposition]
+      }
+    end
+    p.to_stream.read
   end
   def total_count
     cdr = Cdr
@@ -14,8 +29,8 @@ class CdrService
   def prepare_conditions(params)
     #Fix this setting your asterisk to record UTC instead of local time
     Time.zone = 'UTC'
-    limit = params[:limit]
-    offset = params[:offset]
+    self.limit = params[:limit]
+    self.offset = params[:offset]
     self.conditions = ['1 = 1'];
     if params[:start_date].present?
       self.conditions[0] << " and calldate >= ? "

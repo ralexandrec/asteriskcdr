@@ -30,6 +30,14 @@ app.controller('listdata',function($http){
             vm.total_count = response.total_count;
         });
     };
+    vm.getXlsx = function(){
+        window.location.href = 
+        data_url+
+        '/xlsx?start_date='+vm.start_date+
+        '&end_date='+vm.end_date+
+        '&src='+vm.src+
+        '&dst='+vm.dst;
+    }
     vm.getData(vm.pageno);
 });
 angular.module('app').config(function($mdDateLocaleProvider) {

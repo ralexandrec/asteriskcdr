@@ -1,9 +1,9 @@
 require 'pry'
 require 'sinatra/activerecord'
 require 'sinatra/config_file'
+require "sinatra/streaming"
 Dir.glob('./{models,services}/*.rb').each { |file| require file }
 class Application < Sinatra::Base
-
   register Sinatra::ConfigFile
   config_file './config/config.yml'
   set :database_file, 'config/database.yml'
@@ -38,6 +38,14 @@ class Application < Sinatra::Base
       content_type :json
       {data: cdr_service.as_json, total_count: cdr_service.total_count.to_i}.to_json
     end
+  end
+
+  get '/data/xlsx' do
+    protected!
+    cdr_service.prepare_conditions(params)
+    content_type 'application/octet-stream'
+    attachment("asterisk_cdr_report_#{Time.zone.now.strftime('%d_%m_%Y')}.xlsx")
+    cdr_service.to_xlsx
   end
 
   get '/' do
