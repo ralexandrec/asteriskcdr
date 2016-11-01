@@ -5,7 +5,7 @@ Simple asterisk call data records in ruby, sinatra and angularJs
 VERSION 1.0
 
 ###Initial setup:
-Copy and change those files:
+Copy and change these files:
 
 cp config/config.sample.yml config/config.yml
 
